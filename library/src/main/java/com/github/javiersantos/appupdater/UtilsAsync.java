@@ -70,7 +70,7 @@ class UtilsAsync {
                         return update;
                     } else {
                         AppUpdaterError error = updateFrom == UpdateFrom.XML ? AppUpdaterError.XML_ERROR
-                                                                             : AppUpdaterError.JSON_ERROR;
+                                : AppUpdaterError.JSON_ERROR;
 
                         if (listener != null) {
                             listener.onFailed(error);

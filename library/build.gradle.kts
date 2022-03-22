@@ -38,7 +38,6 @@ android {
 
     buildFeatures {
         viewBinding = true
-        compose = true
     }
 
     compileOptions {
@@ -64,7 +63,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime:2.4.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
     
-    implementation("com.squareup.okhttp3:okhttp:4.9.3")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.2")
 
     implementation("org.jsoup:jsoup:1.14.3")
 }

@@ -1,9 +1,10 @@
 package com.github.javiersantos.appupdater.interfaces;
 
 import android.content.DialogInterface;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 
 import com.github.javiersantos.appupdater.AppUpdater;
 import com.github.javiersantos.appupdater.DisableClickListener;
@@ -269,7 +270,7 @@ public interface IAppUpdater {
      *
      * @param textResource resource from the strings xml file for the dismiss button
      * @return this
-     * @deprecated  use {@link #setButtonDismiss(int)} instead
+     * @deprecated use {@link #setButtonDismiss(int)} instead
      */
     AppUpdater setDialogButtonDismiss(@StringRes int textResource);
 
@@ -360,8 +361,9 @@ public interface IAppUpdater {
     /**
      * Make update dialog non-cancelable, and
      * force user to make update
-     *  @param isCancelable true to force user to make update, false otherwise
-     *  @return this
+     *
+     * @param isCancelable true to force user to make update, false otherwise
+     * @return this
      */
     AppUpdater setCancelable(Boolean isCancelable);
 

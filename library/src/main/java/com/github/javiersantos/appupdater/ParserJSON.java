@@ -34,7 +34,7 @@ class ParserJSON {
 
     }
 
-    public Update parse(){
+    public Update parse() {
 
         try {
             JSONObject json = readJsonFromUrl();

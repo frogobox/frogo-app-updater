@@ -1,8 +1,6 @@
 package com.github.javiersantos.appupdater;
 
-import android.support.test.InstrumentationRegistry;
-import android.support.test.rule.UiThreadTestRule;
-import android.support.test.runner.AndroidJUnit4;
+
 
 import com.github.javiersantos.appupdater.enums.AppUpdaterError;
 import com.github.javiersantos.appupdater.enums.UpdateFrom;
@@ -16,8 +14,11 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+
+import androidx.test.InstrumentationRegistry;
+import androidx.test.rule.UiThreadTestRule;
+import androidx.test.runner.AndroidJUnit4;
 
 @RunWith(AndroidJUnit4.class)
 public class NoUpdateAvailableTest {
@@ -59,28 +60,23 @@ public class NoUpdateAvailableTest {
     public void UpdateAvailable_VersionCode_JSON() throws Throwable {
         final CountDownLatch signal = new CountDownLatch(1);
 
-        uiThreadTestRule.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                new AppUpdaterUtils(InstrumentationRegistry.getTargetContext())
-                        .setUpdateFrom(UpdateFrom.JSON)
-                        .setUpdateJSON("https://raw.githubusercontent.com/javiersantos/AppUpdater/master/app/src/androidTest/java/com/github/javiersantos/appupdater/files/no-update-available-versionCode.json")
-                        .withListener(new AppUpdaterUtils.UpdateListener() {
-                            @Override
-                            public void onSuccess(Update update, Boolean isUpdateAvailable) {
-                                assertFalse(isUpdateAvailable);
-                                signal.countDown();
-                            }
+        uiThreadTestRule.runOnUiThread((Runnable) () -> new AppUpdaterUtils(InstrumentationRegistry.getTargetContext())
+                .setUpdateFrom(UpdateFrom.JSON)
+                .setUpdateJSON("https://raw.githubusercontent.com/javiersantos/AppUpdater/master/app/src/androidTest/java/com/github/javiersantos/appupdater/files/no-update-available-versionCode.json")
+                .withListener(new AppUpdaterUtils.UpdateListener() {
+                    @Override
+                    public void onSuccess(Update update, Boolean isUpdateAvailable) {
+                        assertFalse(isUpdateAvailable);
+                        signal.countDown();
+                    }
 
-                            @Override
-                            public void onFailed(AppUpdaterError error) {
-                                assertTrue("Failed", false);
-                                signal.countDown();
-                            }
-                        })
-                        .start();
-            }
-        });
+                    @Override
+                    public void onFailed(AppUpdaterError error) {
+                        assertTrue("Failed", false);
+                        signal.countDown();
+                    }
+                })
+                .start());
 
         signal.await(30, TimeUnit.SECONDS);
     }
@@ -89,28 +85,23 @@ public class NoUpdateAvailableTest {
     public void UpdateAvailable_Basic_XML() throws Throwable {
         final CountDownLatch signal = new CountDownLatch(1);
 
-        uiThreadTestRule.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                new AppUpdaterUtils(InstrumentationRegistry.getTargetContext())
-                        .setUpdateFrom(UpdateFrom.XML)
-                        .setUpdateJSON("https://raw.githubusercontent.com/javiersantos/AppUpdater/master/app/src/androidTest/java/com/github/javiersantos/appupdater/files/no-update-available-basic.xml")
-                        .withListener(new AppUpdaterUtils.UpdateListener() {
-                            @Override
-                            public void onSuccess(Update update, Boolean isUpdateAvailable) {
-                                assertFalse(isUpdateAvailable);
-                                signal.countDown();
-                            }
+        uiThreadTestRule.runOnUiThread((Runnable) () -> new AppUpdaterUtils(InstrumentationRegistry.getTargetContext())
+                .setUpdateFrom(UpdateFrom.XML)
+                .setUpdateJSON("https://raw.githubusercontent.com/javiersantos/AppUpdater/master/app/src/androidTest/java/com/github/javiersantos/appupdater/files/no-update-available-basic.xml")
+                .withListener(new AppUpdaterUtils.UpdateListener() {
+                    @Override
+                    public void onSuccess(Update update, Boolean isUpdateAvailable) {
+                        assertFalse(isUpdateAvailable);
+                        signal.countDown();
+                    }
 
-                            @Override
-                            public void onFailed(AppUpdaterError error) {
-                                assertTrue("Failed", false);
-                                signal.countDown();
-                            }
-                        })
-                        .start();
-            }
-        });
+                    @Override
+                    public void onFailed(AppUpdaterError error) {
+                        assertTrue("Failed", false);
+                        signal.countDown();
+                    }
+                })
+                .start());
 
         signal.await(30, TimeUnit.SECONDS);
     }
@@ -119,28 +110,23 @@ public class NoUpdateAvailableTest {
     public void UpdateAvailable_VersionCode_XML() throws Throwable {
         final CountDownLatch signal = new CountDownLatch(1);
 
-        uiThreadTestRule.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                new AppUpdaterUtils(InstrumentationRegistry.getTargetContext())
-                        .setUpdateFrom(UpdateFrom.XML)
-                        .setUpdateJSON("https://raw.githubusercontent.com/javiersantos/AppUpdater/master/app/src/androidTest/java/com/github/javiersantos/appupdater/files/no-update-available-versionCode.xml")
-                        .withListener(new AppUpdaterUtils.UpdateListener() {
-                            @Override
-                            public void onSuccess(Update update, Boolean isUpdateAvailable) {
-                                assertFalse(isUpdateAvailable);
-                                signal.countDown();
-                            }
+        uiThreadTestRule.runOnUiThread((Runnable) () -> new AppUpdaterUtils(InstrumentationRegistry.getTargetContext())
+                .setUpdateFrom(UpdateFrom.XML)
+                .setUpdateJSON("https://raw.githubusercontent.com/javiersantos/AppUpdater/master/app/src/androidTest/java/com/github/javiersantos/appupdater/files/no-update-available-versionCode.xml")
+                .withListener(new AppUpdaterUtils.UpdateListener() {
+                    @Override
+                    public void onSuccess(Update update, Boolean isUpdateAvailable) {
+                        assertFalse(isUpdateAvailable);
+                        signal.countDown();
+                    }
 
-                            @Override
-                            public void onFailed(AppUpdaterError error) {
-                                assertTrue("Failed", false);
-                                signal.countDown();
-                            }
-                        })
-                        .start();
-            }
-        });
+                    @Override
+                    public void onFailed(AppUpdaterError error) {
+                        assertTrue("Failed", false);
+                        signal.countDown();
+                    }
+                })
+                .start());
 
         signal.await(30, TimeUnit.SECONDS);
     }

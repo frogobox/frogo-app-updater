@@ -1,7 +1,8 @@
 package com.github.javiersantos.appupdater;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import com.github.javiersantos.appupdater.enums.AppUpdaterError;
 import com.github.javiersantos.appupdater.enums.UpdateFrom;
@@ -23,8 +24,8 @@ public class AppUpdaterUtils {
          * onFailed method called if it can't retrieve the latest version
          *
          * @param update            object with the latest update information: version and url to download
-         * @see com.github.javiersantos.appupdater.objects.Update
          * @param isUpdateAvailable compare installed version with the latest one
+         * @see com.github.javiersantos.appupdater.objects.Update
          */
         void onSuccess(Update update, Boolean isUpdateAvailable);
 

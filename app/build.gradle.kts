@@ -62,7 +62,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":library")
+
+    implementation(project(":library"))
     
     implementation("androidx.appcompat:appcompat:1.4.1")
     implementation("androidx.core:core-ktx:1.7.0")
@@ -75,5 +76,6 @@ dependencies {
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test:runner:1.4.0")
+    androidTestImplementation("androidx.test:rules:1.4.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
 }
